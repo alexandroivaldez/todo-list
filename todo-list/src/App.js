@@ -9,34 +9,41 @@ class App extends Component {
 
     this.state = {
       tasks: [
-        {
-          taskId: 1,
-          taskContext: "Clean the dishes"
-        },
-        {
-          taskId: 2,
-          taskContext: "Clean your room"
-        }
       ],
-      inputValue: "A"
+      inputValue: ""
     }
   }
 
-  //Adds task to state
+  //Adds object task to this.state.tasks
   addTask= () => {
-    const updatedArr = [...this.state.tasks, {taskId: 3, taskContext: this.state.inputValue}];
+    const randomID = Math.floor(Math.random() * 10000);
+    const updatedArr = [...this.state.tasks, {taskId: randomID, taskContext: this.state.inputValue}];
     this.setState(() => {
       return {tasks: updatedArr}
     });
     console.log("Button pressed!");
   }
 
+  //Changes this.state.inputValue value when input is changed.
   handleChange = (event) => {
     const userInput = event.target.value;
     console.log(event.target.value)
     this.setState(() => {
       return {inputValue: userInput}
     });
+  }
+
+  //Removes task from this.state.tasks
+  removeTask = (param) => {
+    const filteredArr = this.state.tasks.filter((task) => {
+      if (task.taskId !== param) {
+        return true;
+      }
+    });
+    this.setState(() => {
+      return {tasks: filteredArr}
+    });
+
   }
 
   render() {
@@ -47,7 +54,12 @@ class App extends Component {
         <button onClick={this.addTask}>ENTER</button>
         {
           this.state.tasks.map((task) => {
-            return <h3>{task.taskContext}</h3>
+            return (
+            <div key={task.taskId} className="card">
+              <h3>{task.taskContext}</h3>
+              <button onClick={event => this.removeTask(task.taskId)}>DONE</button>
+            </div>
+            )
           })
         }
       </div>
