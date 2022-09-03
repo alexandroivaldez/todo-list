@@ -1,12 +1,26 @@
-import logo from './logo.svg';
+import { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1> ToDo List </h1>
-    </div>
-  );
+
+class App extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+
+    }
+  }
+
+
+  render() {
+    return (
+      <div className="App">
+        <h1> ToDo List </h1>
+        <input type="text" placeholder='Add a task...' />
+      </div>
+    );
+  }
 }
 
 export default App;
