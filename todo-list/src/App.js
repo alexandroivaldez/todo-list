@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './App.css';
+import InputBox from './components/input-box/input-box.component';
 
 
 class App extends Component {
@@ -52,8 +53,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>List.</h1>
-        <input className="input" type="text" placeholder='Add a task...' onChange={this.handleChange} />
-        <button onClick={this.addTask}>ENTER</button>
+        <InputBox addTaskHandler={this.addTask} onChangeHandler={this.handleChange} />
         {
           this.state.tasks.map((task) => {
             return (

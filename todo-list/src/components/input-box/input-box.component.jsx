@@ -5,7 +5,8 @@ class InputBox extends Component {
         
         return (
             <div>
-
+                <input className="input" type="text" placeholder='Add a task...' onChange={this.props.onChangeHandler} />
+                <button onClick={this.props.addTaskHandler}>ENTER</button>
             </div>
         )
     }
