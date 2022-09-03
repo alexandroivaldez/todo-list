@@ -58,15 +58,6 @@ button {
   background-color: rgb(71, 226, 92);
 }
 
-#trash {
-  background-color: rgb(219, 79, 79);
-}
-
-#trash:hover {
-  background-color: rgb(249, 104, 104);
-  transition: opacity .3s;
-}
-
 #done:hover {
   background-color: rgb(104, 249, 123);
 }

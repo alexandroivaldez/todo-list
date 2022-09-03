@@ -8,16 +8,7 @@ class App extends Component {
     super();
 
     this.state = {
-      tasks: [
-        {
-          taskId: 123,
-          taskContext: 'Clean Litter'
-        },
-        {
-          taskId: 2234,
-          taskContext: 'Destroy cat'
-        }
-      ],
+      tasks: [],
       inputValue: ""
     }
   }
@@ -25,12 +16,15 @@ class App extends Component {
   //Adds object task to this.state.tasks
   addTask = () => {
     const randomID = Math.floor(Math.random() * 10000);
-    const updatedArr = [...this.state.tasks, {taskId: randomID, taskContext: this.state.inputValue}];
-    this.setState(() => {
-      return {tasks: updatedArr}
-    });
-    console.log("Button pressed!");
-  }
+    if(this.state.inputValue.length === 0){
+      alert("No task created");
+    } else {
+      const updatedArr = [...this.state.tasks, {taskId: randomID, taskContext: this.state.inputValue}];
+      this.setState(() => {
+        return {tasks: updatedArr}
+      });
+    }
+  } 
 
   //Changes this.state.inputValue value when input is changed.
   handleChange = (event) => {
@@ -66,7 +60,6 @@ class App extends Component {
             <div key={task.taskId} className="card">
               <h3>{task.taskContext}</h3>
               <button onClick={event => this.removeTask(task.taskId)} id="done">DONE</button>
-              <button onClick={event => this.removeTask(task.taskId)} id="trash">TRASH</button>
             </div>
             )
           })
