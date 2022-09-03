@@ -9,13 +9,21 @@ class App extends Component {
 
     this.state = {
       tasks: [
+        {
+          taskId: 123,
+          taskContext: 'Clean Litter'
+        },
+        {
+          taskId: 2234,
+          taskContext: 'Destroy cat'
+        }
       ],
       inputValue: ""
     }
   }
 
   //Adds object task to this.state.tasks
-  addTask= () => {
+  addTask = () => {
     const randomID = Math.floor(Math.random() * 10000);
     const updatedArr = [...this.state.tasks, {taskId: randomID, taskContext: this.state.inputValue}];
     this.setState(() => {
@@ -49,15 +57,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <br></br>
-        <input type="text" placeholder='Add a task...' onChange={this.handleChange} />
+        <h1>List.</h1>
+        <input className="input" type="text" placeholder='Add a task...' onChange={this.handleChange} />
         <button onClick={this.addTask}>ENTER</button>
         {
           this.state.tasks.map((task) => {
             return (
             <div key={task.taskId} className="card">
               <h3>{task.taskContext}</h3>
-              <button onClick={event => this.removeTask(task.taskId)}>DONE</button>
+              <button onClick={event => this.removeTask(task.taskId)} id="done">DONE</button>
+              <button onClick={event => this.removeTask(task.taskId)} id="trash">TRASH</button>
             </div>
             )
           })
