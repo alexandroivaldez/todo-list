@@ -70,7 +70,7 @@ class App extends Component {
             )
           })
         }
-        <footer> Designed by AV.</footer>
+        <footer> Designed by <a href="https://www.google.com">AV</a>.</footer>
       </div>
     );
   }
