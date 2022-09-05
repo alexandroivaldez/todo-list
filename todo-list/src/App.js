@@ -25,7 +25,13 @@ class App extends Component {
         return {tasks: updatedArr}
       });
     }
-  } 
+  }
+
+  handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      this.addTask();
+    }
+  }
 
   //Changes this.state.inputValue value when input is changed.
   handleChange = (event) => {
@@ -53,7 +59,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>List.</h1>
-        <InputBox addTaskHandler={this.addTask} onChangeHandler={this.handleChange} />
+        <InputBox addTaskHandler={this.addTask} onChangeHandler={this.handleChange} keyDownHandler={this.handleKeyDown}/>
         {
           this.state.tasks.map((task) => {
             return (
@@ -64,7 +70,7 @@ class App extends Component {
             )
           })
         }
-        <footer> Designed by AV.</footer>
+        <footer> Designed by <a href="https://www.google.com">AV</a>.</footer>
       </div>
     );
   }
