@@ -59,11 +59,12 @@ class App extends Component {
             return (
             <div key={task.taskId} className="card">
               <h3>{task.taskContext}</h3>
-              <button onClick={event => this.removeTask(task.taskId)} id="done">DONE</button>
+              <button onClick={event => this.removeTask(task.taskId)} id="done">x</button>
             </div>
             )
           })
         }
+        <footer> Designed by AV.</footer>
       </div>
     );
   }
