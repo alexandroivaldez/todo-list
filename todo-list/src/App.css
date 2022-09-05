@@ -6,7 +6,6 @@ a {
   text-decoration: none;
 }
 
-
 .input {
   line-height: 28px;
   border: 2px solid transparent;
@@ -123,5 +122,6 @@ footer {
  #cardz:active .icon svg {
   transform: scale(0.8);
  }
+
 
  

@@ -21,12 +21,15 @@ class App extends Component {
       alert("No task created");
     } else {
       const updatedArr = [...this.state.tasks, {taskId: randomID, taskContext: this.state.inputValue}];
+      const reset = "";
       this.setState(() => {
-        return {tasks: updatedArr}
+        return {tasks: updatedArr, inputValue: reset}
       });
+      console.log(this.state)
     }
   }
 
+  //Runs addTask if user presses enter
   handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       this.addTask();
@@ -48,7 +51,9 @@ class App extends Component {
       if (task.taskId !== param) {
         return true;
       }
+      return null
     });
+
     this.setState(() => {
       return {tasks: filteredArr}
     });
@@ -59,13 +64,17 @@ class App extends Component {
     return (
       <div className="App">
         <h1>List.</h1>
-        <InputBox addTaskHandler={this.addTask} onChangeHandler={this.handleChange} keyDownHandler={this.handleKeyDown}/>
+        <InputBox
+          addTaskHandler={this.addTask}
+          onChangeHandler={this.handleChange}
+          keyDownHandler={this.handleKeyDown}
+          inputValue={this.state.inputValue} />
         {
           this.state.tasks.map((task) => {
             return (
             <div key={task.taskId}  id="cardz">
-              <span class="text">{task.taskContext}</span>
-              <span class="icon" onClick={event => this.removeTask(task.taskId)} >
+              <span className="text">{task.taskContext}</span>
+              <span className="icon" onClick={event => this.removeTask(task.taskId)} >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" >
                   <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" ></path>
                 </svg>
