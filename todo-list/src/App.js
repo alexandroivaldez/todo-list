@@ -13,7 +13,9 @@ class App extends Component {
       tasks: [],
       inputValue: "",
       toggleState: 0,
-      styling: ""
+      styling: [
+        'lightHeading', 'input', 'footer-light', 'cardz'
+      ]
     }
   }
 
@@ -62,16 +64,23 @@ class App extends Component {
     });
   }
 
+  //Changes the theme of the page from dark to light & vice versa
   toggleChange = () => {
     if (this.state.toggleState == 0){
       console.log("Dark Mode");
+      document.body.style.backgroundColor = '#292929';
       this.setState(() => {
-        return {toggleState: 1}
+        return {toggleState: 1, styling: [
+          'darkHeading', 'input-dark','footer-dark', 'cardz-dark'
+        ]}
       })
 
     } else {
+      document.body.style.backgroundColor = 'white';
       this.setState(() => {
-        return {toggleState: 0}
+        return {toggleState: 0, styling: [
+          'lightHeading', 'input', 'footer-light', 'cardz'
+        ]}
       })
       console.log("Light Mode");
     }
@@ -80,16 +89,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>List.</h1>
+        <h1 id={this.state.styling[0]}>List.</h1>
         <InputBox
           addTaskHandler={this.addTask}
           onChangeHandler={this.handleChange}
           keyDownHandler={this.handleKeyDown}
-          inputValue={this.state.inputValue} />
+          inputValue={this.state.inputValue} 
+          styles={this.state.styling}
+          />
         {
           this.state.tasks.map((task) => {
             return (
-            <div key={task.taskId}  id="cardz">
+            <div key={task.taskId}  id={this.state.styling[3]}>
               <span className="text">{task.taskContext}</span>
               <span className="icon" onClick={event => this.removeTask(task.taskId)} >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" >
@@ -101,7 +112,7 @@ class App extends Component {
           })
         }
         <Toggle toggleChangeHandler={this.toggleChange}/>
-        <footer> Designed by <a href="https://www.google.com">AV</a>.</footer>
+        <footer id={this.state.styling[2]}> Designed by <a href="https://www.google.com">AV</a>.</footer>
       </div>
     );
   }

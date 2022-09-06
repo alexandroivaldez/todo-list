@@ -6,7 +6,7 @@ class InputBox extends Component {
     render() {
         return (
             <div>
-                <input className="input" type="text" value={this.props.inputValue} placeholder='Add a task...' onChange={this.props.onChangeHandler} onKeyDown={this.props.keyDownHandler} maxLength="18" />
+                <input id={this.props.styles[1]} type="text" value={this.props.inputValue} placeholder='Add a task...' onChange={this.props.onChangeHandler} onKeyDown={this.props.keyDownHandler} maxLength="18" />
             </div>
         )
     }

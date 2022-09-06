@@ -7,6 +7,8 @@
     height: 2em;
     top: 5px;
     right: 5px;
+    border: 1px solid black;
+    border-radius: 30px;
   }
   
   /* Hide default HTML checkbox */
@@ -18,7 +20,7 @@
   
   /* The slider */
   .slider {
-    --background: #28096b;
+    --background: transparent;
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -28,6 +30,7 @@
     background-color: var(--background);
     transition: .5s;
     border-radius: 30px;
+    border: 1px solid white;
   }
   
   .slider:before {
@@ -38,16 +41,18 @@
     border-radius: 50%;
     left: 10%;
     bottom: 15%;
-    box-shadow: inset 8px -4px 0px 0px #fff000;
+    box-shadow: inset 8px -4px 0px 0px black;
     background: var(--background);
     transition: .5s;
   }
   
   input:checked + .slider {
-    background-color: #522ba7;
+    background-color: transparent;
   }
   
   input:checked + .slider:before {
     transform: translateX(100%);
-    box-shadow: inset 15px -4px 0px 15px #fff000;
+    box-shadow: inset 15px -4px 0px 15px white;
+    border: 1px solid black;
+
   }

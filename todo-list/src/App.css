@@ -6,24 +6,36 @@ a {
   text-decoration: none;
 }
 
-/* LIGHT MODE START */
-
-body {
-  background-color: rgb(255, 255, 255);
+ * {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue LT W05 65 Medium", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
 }
 
-.input {
-  line-height: 28px;
-  border: 2px solid transparent;
-  border-bottom-color: #777;
-  padding: .2rem 0;
-  outline: none;
+button {
+  border: none;
+  margin: 2px;
+  border-radius: 5px;
   background-color: transparent;
-  color: #0d0c22;
-  transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+
+h3 {
   margin-right: 5px;
-  margin-bottom: 15px;
-  width: 210px;
+}
+
+footer {
+  position: fixed;
+  bottom: 5px;
+  width: 100%;
+  height: 20px;
+}
+ 
+ 
+
+ /* ----- UPDATED LIGHT MODE  ----- */
+
+#lightHeading {
+  color: black;
 }
 
 #cardz {
@@ -52,58 +64,6 @@ body {
   fill: #eee;
  }
 
- /* LIGHT MODE START */
-
-
-.input:focus, input:hover {
-  outline: none;
-  padding: .2rem 1rem;
-  border-radius: 1rem;
-  border-color: #777;
- }
- 
- .input:focus, input:hover {
-  outline: none;
-  padding: .2rem 1rem;
-  border-radius: 1rem;
-  border-color: #777;
- }
-
-
- .input::placeholder {
-  color: #777;
- }
- 
- .input:focus::placeholder {
-  opacity: 0;
-  transition: opacity .3s;
- }
-
- * {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue LT W05 65 Medium", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-}
-
-button {
-  border: none;
-  margin: 2px;
-  border-radius: 5px;
-  background-color: transparent;
-}
-
-
-h3 {
-  margin-right: 5px;
-}
-
-footer {
-  position: fixed;
-  bottom: 5px;
-  width: 100%;
-  height: 20px;
-}
- 
- 
  #cardz, #cardz span {
   transition: 200ms;
  }
@@ -141,30 +101,55 @@ footer {
   transform: scale(0.8);
  }
 
-
-/* DARK MODE */
-#body-dark {
-  background-color: #121212;
-  color: #FFFFFF;
-}
-
-/* 0 */
-#input-dark {
+#input {
   line-height: 28px;
   border: 2px solid transparent;
   border-bottom-color: #777;
   padding: .2rem 0;
   outline: none;
   background-color: transparent;
-  color: #FFFFFF;
+  color: #0d0c22;
   transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
   margin-right: 5px;
   margin-bottom: 15px;
   width: 210px;
 }
 
-/* 1 */
-.cardz-dark {
+#input:focus, input:hover {
+  outline: none;
+  padding: .2rem 1rem;
+  border-radius: 1rem;
+  border-color: #777;
+ }
+
+ 
+ #input:focus, input:hover {
+  outline: none;
+  padding: .2rem 1rem;
+  border-radius: 1rem;
+  border-color: #777;
+ }
+
+ #input::placeholder {
+  color: #777;
+ }
+ 
+ #input:focus::placeholder {
+  opacity: 0;
+  transition: opacity .3s;
+ }
+
+ #footer-light {
+  color: black;
+ }
+
+ /* ----- UPDATED DARK MODE  ----- */
+
+#darkHeading {
+  color: white;
+}
+
+#cardz-dark {
   width: 250px;
   height: 50px;
   cursor: pointer;
@@ -190,4 +175,83 @@ footer {
  #cardz-dark svg {
   width: 15px;
   fill: #eee;
+ }
+
+ #cardz-dark, #cardz span {
+  transition: 200ms;
+ }
+ 
+ #cardz-dark .icon {
+  position: absolute;
+  transform: translateX(210px);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ 
+ 
+ #cardz-dark:hover {
+  background: #ff3636;
+ }
+ 
+ #cardz-dark:hover .text {
+  color: transparent;
+ }
+ 
+ #cardz-dark:hover .icon {
+  width: 250px;
+  border-left: none;
+  transform: translateX(0);
+ }
+ 
+ #cardz-dark:focus {
+  outline: none;
+ }
+ 
+ #cardz-dark:active .icon svg {
+  transform: scale(0.8);
+ }
+
+
+#input-dark {
+  line-height: 28px;
+  border: 2px solid transparent;
+  border-bottom-color: #777;
+  padding: .2rem 0;
+  outline: none;
+  background-color: transparent;
+  color: #FFFFFF;
+  transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  margin-right: 5px;
+  margin-bottom: 15px;
+  width: 210px;
+}
+
+#input-dark::placeholder {
+  opacity: 0;
+  transition: opacity .3s;
+ }
+
+ #input-dark::placeholder {
+  color: #777;
+ }
+
+ #input-dark:focus, input:hover {
+  outline: none;
+  padding: .2rem 1rem;
+  border-radius: 1rem;
+  border-color: #777;
+ }
+
+ #input-dark:focus, input:hover {
+  outline: none;
+  padding: .2rem 1rem;
+  border-radius: 1rem;
+  border-color: #777;
+ }
+
+ #footer-dark {
+  color: white;
  }
