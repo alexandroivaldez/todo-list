@@ -6,6 +6,12 @@ a {
   text-decoration: none;
 }
 
+/* LIGHT MODE START */
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
 .input {
   line-height: 28px;
   border: 2px solid transparent;
@@ -18,6 +24,42 @@ a {
   margin-right: 5px;
   margin-bottom: 15px;
   width: 210px;
+}
+
+#cardz {
+  width: 250px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: rgb(147, 132, 132);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  background: #ffffff;
+  margin: auto;
+  margin-top: 5px;
+ }
+
+ #cardz .text {
+  transform: translateX(35px);
+  color: black;
+  font-weight: bold;
+ }
+
+ #cardz svg {
+  width: 15px;
+  fill: #eee;
+ }
+
+ /* LIGHT MODE START */
+
+
+.input:focus, input:hover {
+  outline: none;
+  padding: .2rem 1rem;
+  border-radius: 1rem;
+  border-color: #777;
  }
  
  .input:focus, input:hover {
@@ -26,7 +68,8 @@ a {
   border-radius: 1rem;
   border-color: #777;
  }
- 
+
+
  .input::placeholder {
   color: #777;
  }
@@ -59,31 +102,10 @@ footer {
   width: 100%;
   height: 20px;
 }
-
-#cardz {
-  width: 250px;
-  height: 50px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  background: rgb(147, 132, 132);
-  border: none;
-  border-radius: 5px;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-  background: #ffffff;
-  margin: auto;
-  margin-top: 5px;
- }
  
  
  #cardz, #cardz span {
   transition: 200ms;
- }
- 
- #cardz .text {
-  transform: translateX(35px);
-  color: black;
-  font-weight: bold;
  }
  
  #cardz .icon {
@@ -96,10 +118,6 @@ footer {
   justify-content: center;
  }
  
- #cardz svg {
-  width: 15px;
-  fill: #eee;
- }
  
  #cardz:hover {
   background: #ff3636;
@@ -124,4 +142,52 @@ footer {
  }
 
 
- 
+/* DARK MODE */
+#body-dark {
+  background-color: #121212;
+  color: #FFFFFF;
+}
+
+/* 0 */
+#input-dark {
+  line-height: 28px;
+  border: 2px solid transparent;
+  border-bottom-color: #777;
+  padding: .2rem 0;
+  outline: none;
+  background-color: transparent;
+  color: #FFFFFF;
+  transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  margin-right: 5px;
+  margin-bottom: 15px;
+  width: 210px;
+}
+
+/* 1 */
+.cardz-dark {
+  width: 250px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: rgb(147, 132, 132);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  background: #292929;
+  margin: auto;
+  margin-top: 5px;
+ }
+
+ /* 2 */
+ #cardz-dark .text {
+  transform: translateX(35px);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+ }
+
+ /* 3 */
+ #cardz-dark svg {
+  width: 15px;
+  fill: #eee;
+ }

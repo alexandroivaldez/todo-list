@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import './App.css';
 import InputBox from './components/input-box/input-box.component';
+import Toggle from  "./components/toggle/toggle.component.jsx"
 
 
 class App extends Component {
@@ -10,7 +11,9 @@ class App extends Component {
 
     this.state = {
       tasks: [],
-      inputValue: ""
+      inputValue: "",
+      toggleState: 0,
+      styling: ""
     }
   }
 
@@ -57,7 +60,21 @@ class App extends Component {
     this.setState(() => {
       return {tasks: filteredArr}
     });
+  }
 
+  toggleChange = () => {
+    if (this.state.toggleState == 0){
+      console.log("Dark Mode");
+      this.setState(() => {
+        return {toggleState: 1}
+      })
+
+    } else {
+      this.setState(() => {
+        return {toggleState: 0}
+      })
+      console.log("Light Mode");
+    }
   }
 
   render() {
@@ -83,6 +100,7 @@ class App extends Component {
             )
           })
         }
+        <Toggle toggleChangeHandler={this.toggleChange}/>
         <footer> Designed by <a href="https://www.google.com">AV</a>.</footer>
       </div>
     );
