@@ -66,7 +66,7 @@ class App extends Component {
 
   //Changes the theme of the page from dark to light & vice versa
   toggleChange = () => {
-    if (this.state.toggleState == 0){
+    if (this.state.toggleState === 0){
       console.log("Dark Mode");
       document.body.style.backgroundColor = '#292929';
       this.setState(() => {
